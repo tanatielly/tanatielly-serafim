@@ -1,6 +1,6 @@
-// =============================================================================
-// script.js — toda a interatividade do portfólio, em JavaScript puro (sem libs)
-// =============================================================================
+// ===============================================
+// script.js — toda a interatividade do portfólio
+// ===============================================
 
 document.addEventListener('DOMContentLoaded', () => {
   initThemeToggle();
