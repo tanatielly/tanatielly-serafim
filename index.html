@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanatielly Serafim — Engenharia de Automação &amp; IA</title>
+  <meta name="description" content="Portfólio de Tanatielly Serafim, especialista em Automação Inteligente, RPA e IA aplicada a infraestrutura.">
+
+  <!-- Fontes: uma display técnica (Space Grotesk), uma de leitura (Inter) e uma mono para dados/terminal (JetBrains Mono) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===================== BARRA SUPERIOR / STATUS BAR ===================== -->
+  <!-- A navegação é tratada como uma "barra de status" de sistema, coerente com o tema de monitoramento -->
+  <header class="topbar" id="topbar">
+    <div class="topbar__inner">
+      <a href="#inicio" class="brand" aria-label="Voltar ao início">
+        <span class="brand__prompt">tanatielly<span class="brand__at">@</span>ops</span><span class="cursor">_</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li><a href="#sobre" class="nav__link"><span class="nav__dot" aria-hidden="true"></span>Sobre mim</a></li>
+          <li><a href="#formacao" class="nav__link"><span class="nav__dot" aria-hidden="true"></span>Formação</a></li>
+          <li><a href="#portfolio" class="nav__link"><span class="nav__dot" aria-hidden="true"></span>Portfólio</a></li>
+          <li><a href="#contato" class="nav__link"><span class="nav__dot" aria-hidden="true"></span>Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="topbar__actions">
+        <!-- Alternância de tema claro/escuro -->
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Alternar tema claro/escuro" aria-pressed="false">
+          <span class="icon-btn__icon" aria-hidden="true">◐</span>
+        </button>
+        <!-- Botão de menu para dispositivos móveis -->
+        <button id="menuToggle" class="icon-btn icon-btn--menu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+          <span class="burger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="topo">
+
+    <!-- ===================== HERO / TERMINAL DE ABERTURA ===================== -->
+    <section id="inicio" class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="container hero__content">
+
+        <div class="terminal">
+          <div class="terminal__bar">
+            <span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span>
+            <span class="terminal__title">status.sh</span>
+          </div>
+          <div class="terminal__body">
+            <p class="terminal__line"><span class="prompt">$</span> whoami</p>
+            <!-- O texto abaixo é digitado via JavaScript (efeito de máquina de escrever) -->
+            <p class="terminal__line terminal__type" id="typeTarget"></p>
+            <p class="terminal__line terminal__ready" id="terminalReady" hidden>
+              <span class="prompt">$</span> systemctl status carreira.service
+              <br><span class="ok">● active (running)</span> desde 2023 — Automação, RPA e IA aplicada a infraestrutura
+            </p>
+          </div>
+        </div>
+
+        <div class="hero__text">
+          <p class="eyebrow">// engenharia de automação &amp; ia</p>
+          <h1>Transformo operações manuais em <span class="hl">pipelines autossuficientes</span>.</h1>
+          <p class="hero__lead">
+            Sou Tanatielly Serafim, especialista em RPA e IA aplicada à infraestrutura. Desenvolvo
+            automações inteligentes, modelos de machine learning para detecção de anomalias e
+            dashboards que dão visibilidade em tempo real sobre a saúde de sistemas críticos.
+          </p>
+          <div class="hero__cta">
+            <a href="#portfolio" class="btn btn--primary">Ver estudos de caso</a>
+            <a href="#contato" class="btn btn--ghost">Falar comigo</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Faixa de métricas — dados reais extraídos da experiência profissional -->
+      <div class="metrics" role="list">
+        <div class="metric" role="listitem">
+          <span class="metric__value" data-count="60" data-suffix="%">0%</span>
+          <span class="metric__label">redução no tempo de resposta</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric__value" data-count="3" data-suffix="">0</span>
+          <span class="metric__label">certificações técnicas ativas</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric__value" data-count="2" data-suffix="">0</span>
+          <span class="metric__label">idiomas além do português</span>
+        </div>
+        <div class="metric" role="listitem">
+          <span class="metric__value" data-count="100" data-suffix="%">0%</span>
+          <span class="metric__label">end-to-end: coleta → decisão → ação</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE MIM ===================== -->
+    <section id="sobre" class="panel">
+      <div class="container">
+        <p class="panel__eyebrow">// sobre</p>
+        <h2 class="panel__title">Sobre mim</h2>
+
+        <div class="about">
+          <div class="about__text">
+            <p>
+              Atuo na fronteira entre infraestrutura e inteligência artificial. Comecei em suporte e
+              automação de NOC/SOC — firewalls, monitoramento, segurança de endpoints — e migrei para
+              projetar sistemas que decidem sozinhos: helpdesks que diagnosticam anomalias antes que
+              alguém precise abrir um chamado, e pipelines de RPA que eliminam etapas manuais repetitivas
+              de ponta a ponta.
+            </p>
+            <p>
+              Hoje, na Hitss do Brasil, arquiteto soluções de automação inteligente baseadas em coleta de
+              dados via SNMP, machine learning para padrões anormais de rede e módulos customizados em
+              Odoo para orquestrar regras de negócio. Gosto de transformar processos manuais em algo que
+              funciona sozinho — e de entender, com dados, o porquê de cada decisão automatizada.
+            </p>
+            <p>
+              Fora do trabalho, meu interesse por LLMs e segurança de IA continua ativo: estudo como
+              modelos de linguagem podem ser aplicados com responsabilidade em automação operacional, e
+              como proteger esses sistemas de uso indevido.
+            </p>
+          </div>
+
+          <aside class="about__facts" aria-label="Dados rápidos">
+            <ul class="facts">
+              <li><span class="facts__k">Base</span><span class="facts__v">Guarulhos, SP</span></li>
+              <li><span class="facts__k">Foco</span><span class="facts__v">RPA · Machine Learning · LLMs</span></li>
+              <li><span class="facts__k">Stack</span><span class="facts__v">Python · Odoo · Docker · Kubernetes</span></li>
+              <li><span class="facts__k">Idiomas</span><span class="facts__v">PT nativo · EN avançado · ES intermediário</span></li>
+              <li><span class="facts__k">Contato</span><span class="facts__v">tanatielly.serafim26@gmail.com</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FORMAÇÃO ===================== -->
+    <section id="formacao" class="panel panel--alt">
+      <div class="container">
+        <p class="panel__eyebrow">// formação</p>
+        <h2 class="panel__title">Formação &amp; certificações</h2>
+
+        <!-- Linha do tempo: aqui a ordem cronológica é real, por isso faz sentido usar marcadores sequenciais -->
+        <ol class="timeline">
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Formação acadêmica</span>
+              <h3>Tecnólogo em Segurança da Informação</h3>
+              <p>Centro Universitário Internacional (UNINTER) — Guarulhos, SP</p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Certificação</span>
+              <h3>Certified LLM Security Professional (CLLMSP)</h3>
+              <p>Red Team Leaders</p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Certificação</span>
+              <h3>Fortinet Certified Fundamentals in Cybersecurity</h3>
+              <p>Fortinet</p>
+            </div>
+          </li>
+
+          <li class="timeline__item">
+            <div class="timeline__marker" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <span class="timeline__tag">Certificação</span>
+              <h3>Sophos Firewall Certified Engineer v21.5 (ET80)</h3>
+              <p>Sophos</p>
+            </div>
+          </li>
+        </ol>
+
+        <!-- Competências agrupadas por área -->
+        <div class="skills">
+          <div class="skill-group">
+            <h3 class="skill-group__title">Machine Learning &amp; IA</h3>
+            <ul class="tag-list">
+              <li>Detecção de anomalias</li><li>Análise preditiva</li><li>LLMs</li><li>Feature engineering</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title">RPA &amp; Automação</h3>
+            <ul class="tag-list">
+              <li>Odoo (módulos custom)</li><li>Orquestração de workflows</li><li>Business Rules Engine</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title">Infra &amp; DevOps</h3>
+            <ul class="tag-list">
+              <li>Docker</li><li>Kubernetes</li><li>CI/CD</li><li>Linux</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title">Segurança &amp; Monitoramento</h3>
+            <ul class="tag-list">
+              <li>Zabbix</li><li>Grafana</li><li>Wazuh</li><li>Firewalls (FortiGate, Sophos)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PORTFÓLIO ===================== -->
+    <section id="portfolio" class="panel">
+      <div class="container">
+        <p class="panel__eyebrow">// portfólio</p>
+        <h2 class="panel__title">Estudos de caso</h2>
+        <p class="panel__intro">
+          Projetos e frentes de trabalho desenvolvidos ao longo da minha atuação profissional.
+          <strong>Substitua os links abaixo pelos endereços reais</strong> dos seus repositórios ou
+          publicações quando for publicar o site.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__head">
+              <span class="card__index">status</span>
+              <span class="ok ok--sm">● produção</span>
+            </div>
+            <h3>Helpdesk autônomo com IA</h3>
+            <p>
+              Arquitetura de sistema de helpdesk baseado em IA, com coleta de dados via SNMP,
+              detecção de anomalias por machine learning e abertura automática de chamados,
+              reduzindo o tempo de resposta em até 60%.
+            </p>
+            <ul class="tag-list tag-list--sm">
+              <li>Python</li><li>Machine Learning</li><li>SNMP</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <span class="card__index">status</span>
+              <span class="ok ok--sm">● produção</span>
+            </div>
+            <h3>Módulos de RPA em Odoo</h3>
+            <p>
+              Desenvolvimento de módulos customizados em Odoo para automação robótica de
+              processos: workflows inteligentes, regras de negócio automatizadas e orquestração
+              de tarefas complexas de ponta a ponta.
+            </p>
+            <ul class="tag-list tag-list--sm">
+              <li>Odoo</li><li>RPA</li><li>APIs REST</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <span class="card__index">status</span>
+              <span class="ok ok--sm">● produção</span>
+            </div>
+            <h3>Dashboards de saúde do backbone</h3>
+            <p>
+              Dashboards interativos com dados em tempo real para visualização da saúde de rede,
+              alertas preditivos e apoio à tomada de decisão estratégica em operações críticas.
+            </p>
+            <ul class="tag-list tag-list--sm">
+              <li>Grafana</li><li>Data Pipelines</li><li>BI</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <span class="card__index">status</span>
+              <span class="ok ok--sm">● produção</span>
+            </div>
+            <h3>Automação de infraestrutura</h3>
+            <p>
+              Scripts Python para automação de rotinas de backup, pipelines de CI/CD e
+              orquestração de containers com Docker e Kubernetes em ambiente de produção.
+            </p>
+            <ul class="tag-list tag-list--sm">
+              <li>Docker</li><li>Kubernetes</li><li>CI/CD</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section id="contato" class="panel panel--alt">
+      <div class="container contact">
+        <div class="contact__intro">
+          <p class="panel__eyebrow">// contato</p>
+          <h2 class="panel__title">Vamos conversar</h2>
+          <p>
+            Aberta a novas oportunidades e conexões em automação, RPA e IA aplicada.
+            Preencha o formulário — a validação e o envio são feitos em JavaScript.
+          </p>
+          <ul class="contact__list">
+            <li>✉ tanatielly.serafim26@gmail.com</li>
+            <li>☏ (17) 99218-7873</li>
+            <li>in linkedin.com/in/tanatielly-serafim</li>
+          </ul>
+        </div>
+
+        <form id="contactForm" class="form" novalidate>
+          <div class="field">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" placeholder="Seu nome completo" autocomplete="name">
+            <span class="field__error" id="nameError" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="voce@exemplo.com" autocomplete="email">
+            <span class="field__error" id="emailError" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="5" placeholder="Conte um pouco sobre o motivo do contato..."></textarea>
+            <span class="field__error" id="messageError" role="alert"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block">Enviar mensagem</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Tanatielly Serafim — feito com HTML, CSS e JavaScript puros.</p>
+      <a href="#topo" class="footer__top">voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <!-- ===================== MODAL DE CONFIRMAÇÃO ===================== -->
+  <div class="modal" id="successModal" hidden>
+    <div class="modal__box" role="alertdialog" aria-labelledby="modalTitle" aria-modal="true">
+      <p class="modal__icon" aria-hidden="true">✔</p>
+      <h3 id="modalTitle">Mensagem enviada com sucesso!</h3>
+      <p>Obrigada pelo contato — retorno em breve.</p>
+      <button type="button" class="btn btn--primary" id="modalClose">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
