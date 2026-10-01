@@ -137,10 +137,16 @@ function initCounters() {
 }
 
 /* -----------------------------------------------------------------------
- * 6) VALIDAÇÃO E ENVIO (SIMULADO) DO FORMULÁRIO DE CONTATO
+ * 6) VALIDAÇÃO E ENVIO DO FORMULÁRIO DE CONTATO
+ * O envio usa o FormSubmit (formsubmit.co), que repassa a mensagem por e-mail.
  * --------------------------------------------------------------------- */
 function initContactForm() {
+  const FORM_ENDPOINT = 'https://formsubmit.co/ajax/tanatielly.serafim26@gmail.com';
+
   const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const status = document.getElementById('formStatus');
+  const honey = document.getElementById('honey');
   const modal = document.getElementById('successModal');
   const modalClose = document.getElementById('modalClose');
 
@@ -191,14 +197,44 @@ function initContactForm() {
     return valid;
   }
 
-  form.addEventListener('submit', (event) => {
-    event.preventDefault(); // Impede o envio real, pois este é um formulário de demonstração
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // O envio é feito via fetch, sem recarregar a página
 
     if (!validate()) return;
 
-    // Simula o envio: limpa o formulário e exibe a confirmação
-    form.reset();
-    openModal();
+    const name = fields.name.input.value.trim();
+    const buttonLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando…';
+    status.textContent = '';
+
+    try {
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name,
+          email: fields.email.input.value.trim(), // o FormSubmit usa este campo como Reply-To
+          message: fields.message.input.value.trim(),
+          _subject: `Novo contato pelo portfólio — ${name}`,
+          _template: 'table',
+          _honey: honey.value,
+        }),
+      });
+      const data = await res.json();
+
+      // O FormSubmit devolve "success" como string ("true" / "false")
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message);
+
+      form.reset();
+      openModal();
+    } catch {
+      // Mantém o que foi digitado para a pessoa poder tentar de novo
+      status.textContent = 'Não foi possível enviar agora. Tente novamente ou me escreva em tanatielly.serafim26@gmail.com.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = buttonLabel;
+    }
   });
 
   // Limpa o erro de um campo assim que o usuário volta a digitar nele

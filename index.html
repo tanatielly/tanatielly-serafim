@@ -305,7 +305,7 @@
           <h2 class="panel__title">Vamos conversar</h2>
           <p>
             Aberta a novas oportunidades e conexões em automação, RPA e IA aplicada.
-            Preencha o formulário — a validação e o envio são feitos em JavaScript.
+            Preencha o formulário ou, se preferir, fale comigo diretamente por um dos canais abaixo.
           </p>
           <ul class="contact__list">
             <li>✉ tanatielly.serafim26@gmail.com</li>
@@ -333,7 +333,11 @@
             <span class="field__error" id="messageError" role="alert"></span>
           </div>
 
-          <button type="submit" class="btn btn--primary btn--block">Enviar mensagem</button>
+          <!-- Campo anti-spam: invisível para pessoas, bots costumam preenchê-lo -->
+          <input type="text" name="_honey" id="honey" class="form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <button type="submit" class="btn btn--primary btn--block" id="submitBtn">Enviar mensagem</button>
+          <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>

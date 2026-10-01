@@ -402,6 +402,9 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .field input:focus, .field textarea:focus { border-color: var(--signal); outline: none; }
 .field.has-error input, .field.has-error textarea { border-color: var(--danger); }
 .field__error { min-height: 1em; font-size: .78rem; color: var(--danger); }
+.form__honey { position: absolute; left: -9999px; }
+.form__status { min-height: 1em; margin: 0; font-size: .85rem; color: var(--danger); }
+.btn:disabled { opacity: .6; cursor: wait; transform: none; }
 
 /* =========================================================================
    RODAPÉ
